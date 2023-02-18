@@ -3,10 +3,11 @@ kind: Service
 metadata:
   name: voicevox
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: voicevox
   ports:
-    - name: http
-      port: 50021
-      targetPort: 50021
+  - name: http
+    port: 50021
+    targetPort: 50021
+    nodePort: 31461
