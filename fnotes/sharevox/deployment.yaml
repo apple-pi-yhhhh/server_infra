@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sharevox
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: sharevox
+  template:
+    metadata:
+      labels:
+        app: sharevox
+    spec:
+      containers:
+      - name: sharevox
+        image: sharevox/sharevox_engine:cpu-latest
+        ports:
+        - containerPort: 50021
